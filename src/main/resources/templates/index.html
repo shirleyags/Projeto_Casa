@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:xlink="http://www.w3.org/1999/xlink"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="LayoutPadrao">
+<head>
+<meta charset="UTF-8">
+<title>Shirloka</title>
+</head>
+<body>
+
+
+	<section layout:fragment="conteudo">
+		<div id="carouselExampleIndicators" class="carousel slide mover_carrossel"
+			data-interval="3000" data-ride="carousel">
+			<ol class="carousel-indicators">
+				<li data-target="#carouselExampleIndicators" data-slide-to="0"
+					class="active"></li>
+				<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+				<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+			</ol>
+			<div class="carousel-inner">
+				<div class="carousel-item active">
+					<img class="d-block w-100 imagem_carrossel1"
+						src="/imagens/show_amarelo.jpg" alt="Primeiro Slide"> 
+				</div>
+				<div class="carousel-item">
+					<img class="d-block w-100 imagem_carrossel2"
+						src="imagens/show_bracos.jpg" alt="Segundo Slide">
+				</div>
+				<div class="carousel-item">
+					<img class="d-block w-100 imagem_carrossel3"
+						src="/imagens/show_celular.jpg" alt="Terceiro Slide">
+				</div>
+			</div>
+			</div>
+	</section>
+
+</body>
+</html>

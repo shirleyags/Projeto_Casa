@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+<html xmlns:xlink="http://www.w3.org/1999/xlink"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<meta charset="UTF-8">
+<title>Shirloka</title>
+<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="/css/style.css">
+</head>
+<body>
+
+	<nav class="navbar navbar-expand-lg nav_mover"
+		style="background-color: #00008B;">
+		<a class="navbar-brand" href="#">Shirloka Ingressos</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse"
+			data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
+			aria-expanded="false" aria-label="Alterna navegação">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse justify-content-end"
+			id="navbarNavAltMarkup">
+			<div class="navbar-nav">
+				<a class="nav-item nav-link active" href="/index">Home <span
+					class="sr-only">(Página atual)</span></a> <a class="nav-item nav-link"
+					href="/casa/listacasas">Buscar Casa</a> <a
+					class="nav-item nav-link" href="/casa/casacadastro">Cadastrar
+					Casa</a>
+			</div>
+		</div>
+	</nav>
+	
+	
+	<section layout:fragment="conteudo">
+		<p>Conteúdo Principal</p>
+	</section>
+	
+	
+
+	<!-- Footer -->
+	<footer class="page-footer font-small blue pt-4" >
+		
+
+			<!-- Footer Links -->
+			<div class="container-fluid text-center text-md-left">
+
+				<!-- Grid row -->
+				<div class="row">
+
+					<!-- Grid column -->
+					<div class="col-md-6 mt-md-0 mt-3">
+
+						<!-- Content -->
+						<h5 class="text-uppercase">SHIRLOKA INGRESSOS</h5>
+						<p>Aqui você encontra os melhores shows, nas melhores casas do
+							Brasil!</p>
+
+					</div>
+					<hr class="clearfix w-100 d-md-none pb-3">
+					<div class="col-md-3 mb-md-0 mb-3">
+						<div class="col-md-3 mb-md-0 mb-3"></div>
+					</div>
+				</div>
+				<div class="footer-copyright text-center py-3">© 2020
+					Copyright</div>
+			</div>
+	</footer>
+
+	
+
+
+	<script type="text/javascript" src="/js/jquery-3.4.1.min.js"></script>
+	<script type="text/javascript" src="/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="/js/modalMensagem.js"></script>
+</body>
+</html>

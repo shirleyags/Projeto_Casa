@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="LayoutPadrao">
+<head>
+<meta charset="UTF-8">
+<title>Cadastrar Shows</title>
+</head>
+
+
+
+<section layout:fragment="conteudo">
+
+	<div class="faixa">
+		<h1>CADASTRAR CASA DE SHOW</h1>
+	</div>
+
+
+
+	<form class="mover_formulario" method="POST"
+		action="/casa/casacadastro" th:object="${casaShow}">
+		<input type="hidden" th:field="*{code}" />
+
+		<div class="alert alert-success comunicado"
+			th:if="${!#strings.isEmpty(mensagem)}">
+			<span th:text="${mensagem}">Salvo</span>
+		</div>
+
+		<div class="alert alert-danger comunicado"
+			th:if="${#fields.hasAnyErrors()}">
+			<div th:each="detailedError : ${#fields.detailedErrors()}">
+				<span th:text="${detailedError.message}"></span>
+			</div>
+		</div>
+
+		<div class="form-group col-md-4" >
+			<label class="label_letras" for="formGroupExampleInput">Nome	
+				da Casa de Show</label> <input type="text" class="form-control" th:classappend ="${#fields.hasErrors('casa')} ? is-invalid" id="casa"
+				placeholder="Insira o nome" th:field="*{casa}"/>
+		</div>
+		<div class="form-group col-md-4">
+			<label class="label_letras" for="formGroupExampleInput2">Logradouro</label>
+			<input type="text" class="form-control" th:classappend ="${#fields.hasErrors('logradouro')} ? is-invalid" id="logradouro"
+				placeholder="Insira o endereço" th:field="*{logradouro}" />
+		</div>
+		<div class="form-group col-md-2">
+			<label class="label_letras" for="formGroupExampleInput2">Cidade</label>
+			<input type="text" class="form-control" th:classappend ="${#fields.hasErrors('cidade')} ? is-invalid" id="cidade"
+				placeholder="Cidade" th:field="*{cidade}" />
+		</div>
+		<div class="form-group col-md-1">
+			<label class="label_letras" for="formGroupExampleInput2">Estado</label>
+			<input type="text" class="form-control" th:classappend ="${#fields.hasErrors('estado')} ? is-invalid" id="estado"
+				placeholder="Sigla" th:field="*{estado}" />
+
+			<button type="submit" class="btn btn-primary mover_botao">Inserir</button>
+		</div>
+	</form>
+
+</section>
+
+
+</html>

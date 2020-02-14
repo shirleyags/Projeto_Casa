@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="LayoutPadrao">
+<head>
+<meta charset="UTF-8">
+<title>Cadastrar Shows</title>
+</head>
+
+
+
+<section layout:fragment="conteudo">
+
+
+		<form class="mover_formulario2" method="POST" action="/eventos/cadastrareventos">
+			<div class="form-group col-md-4">
+				<label for="formGroupExampleInput">Evento</label> 
+				<input type="text"
+					class="form-control" id="formGroupExampleInput"
+					placeholder="Insira o evento" name="evento">
+			</div>
+			
+			<div class="form-group col-md-4">
+				<label for="formGroupExampleInput2">Data</label> 
+				<input
+					type="text" class="form-control" id="formGroupExampleInput2"
+					placeholder="Insira o valor do ingresso" name="data">
+			</div>
+			
+			<div class="form-group col-md-4">
+				<label for="formGroupExampleInput2">Capacidade</label> 
+				<input
+					type="text" class="form-control" id="formGroupExampleInput2"
+					placeholder="Insira quantas pessoas a casa suporta" name="capacidade">
+			</div>
+			<div class="form-group col-md-4">
+				<label for="formGroupExampleInput2">Valor do Ingresso</label> 
+				<input
+					type="text" class="form-control" id="formGroupExampleInput2"
+					placeholder="Insira o valor do ingresso" name="valor">
+			</div>
+			<div class="form-group col-md-2">
+				<label for="inputState">Casa de Show</label> <select id="inputState"
+					class="form-control">
+					<option selected>Escolha</option>
+					<option>...</option>
+				</select>
+			</div>
+			<div class="form-group col-md-2">
+				<label for="inputState">Estilo musical</label> <select
+					id="inputState" class="form-control">
+					<option selected>Escolha</option>
+					<option>...</option>
+				</select>
+			</div>
+			<button type="submit" class="btn btn-primary">Entrar</button>
+		</form>
+
+</section>
+
+

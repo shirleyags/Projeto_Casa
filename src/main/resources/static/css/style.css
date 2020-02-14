@@ -1,0 +1,93 @@
+
+.imagem_carrossel1{
+	object-fit:cover;
+	object-position:0 20%;
+	height:500px;
+}
+.imagem_carrossel2{
+	object-fit:cover;
+	object-position:0 70%;
+	height:500px;
+}
+
+.imagem_carrossel3{
+	object-fit:cover;
+	object-position:0 5%;
+	height:500px;
+}
+.mover_carrossel{
+	margin-top:80px;
+	margin-bottom: 90px;
+}
+.nav_mover{
+	padding-top: 50px;
+
+}
+
+footer {
+    background-color:#FFA500;
+}
+a{
+	color:white;
+}
+
+.mover_formulario{
+	margin-top:50px;
+	margin-left: 50px;
+	margin-bottom:-71px;
+}
+.formulario_busca{
+	margin-top: 100px;
+	margin-bottom: 30px;
+	margin-left:10px;
+}
+.label_letras{
+	font-weight: bold;
+} 
+.mover_botao{
+	margin-top: 30px;
+	margin-bottom: 205px;
+}
+.faixa{
+	margin-top:10px;
+	padding: 10px;
+	background-color:#708090;
+	text-align: center;
+}
+.faixa h1{
+	text-shadow: #000 1px 1px 2px;
+	color: white;
+	font-size: 30px;
+	font-weight: bold;
+	
+}
+.etique_buscar{
+	font-size: 25px;
+	font-weight: bold;
+}
+.botao_ok{	
+	color:	#1C1C1C;
+	border-radius: 10px;
+	background-color:	#DCDCDC;
+	font-size: 20px;
+}
+#busca{
+	border-radius: 5px;
+}
+.comunicado{
+	width: 598px;
+	margin-left:15px;
+}
+.mover_formulario2{
+	margin-bottom: 30px;
+}
+	
+	
+
+
+
+
+
+
+
+
