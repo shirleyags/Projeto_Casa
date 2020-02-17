@@ -14,10 +14,10 @@ public class CasaShowApplication {
 		SpringApplication.run(CasaShowApplication.class, args);
 	}
 	
-//	@Bean
-//	public FixedLocaleResolver localeResolver() {
-//		return new FixedLocaleResolver(new Locale("pt", "BR"));
-//	}
+	@Bean
+	public FixedLocaleResolver localeResolver() {
+		return new FixedLocaleResolver(new Locale("pt", "BR"));
+	}
 
 }
 

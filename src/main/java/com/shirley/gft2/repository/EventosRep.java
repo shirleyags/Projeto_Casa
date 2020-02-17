@@ -1,4 +1,4 @@
-package com.shirley.gft2.repository;
+	package com.shirley.gft2.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

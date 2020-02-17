@@ -1,37 +1,53 @@
 package com.shirley.gft2.controler;
 
+import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
+import com.shirley.gft2.model.CasaShow;
 import com.shirley.gft2.model.Eventos;
+import com.shirley.gft2.repository.CasaCadastros;
 import com.shirley.gft2.repository.EventosRep;
 
 @Controller
 public class ControllerCadastrarEventos {
-	
-	
+
+	@Autowired
 	private EventosRep eventosResp;
-	
+
+	@Autowired
+	private CasaCadastros cadastroscasa;
 
 	@RequestMapping("/eventos/cadastrareventos")
-	public String cadastraEventos() {
+	public String cadastraEventos(Eventos evento) {
 		return "/Eventos/CadastrarEventos";
 	}
-	
-	
-	@RequestMapping(value="/eventos/cadastrareventos", method=RequestMethod.POST)
-	public String salvar(Eventos evento) {
+
+	@RequestMapping(value = "/eventos/cadastrareventos", method = RequestMethod.POST)
+	public ModelAndView salvar(Eventos evento) {
 		eventosResp.save(evento);
-		return "/Eventos/CadastrarEventos";
-		
+		ModelAndView mv = new ModelAndView("/Eventos/CadastrarEventos");// Se salvou, pegue esse caminho...
+		mv.addObject("mensagem", "Evento cadastrado com sucesso!"); // e adicione no HTML "mensagem"
+		return mv;
+
+	}
+	
+	@ModelAttribute("listaDeCasas")
+	public List<CasaShow> casas(){
+		return cadastroscasa.findAll();
 	}
 	
 	
+	
+	
 
+}
 
-		
 //		@Autowired
 //		private CasaCadastros cadastroscasa;
 //		
@@ -80,4 +96,3 @@ public class ControllerCadastrarEventos {
 //		
 //
 //	}
-}
