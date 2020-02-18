@@ -4,6 +4,8 @@ import java.math.BigDecimal;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
@@ -18,6 +20,7 @@ import org.springframework.format.annotation.NumberFormat;
 public class Eventos extends AbstractEntity<Long> {
 
 	private String evento;
+	
 	private int capacidade;
 
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
@@ -31,10 +34,11 @@ public class Eventos extends AbstractEntity<Long> {
 	@JoinColumn(name = "id_casadeshow_fk")
 	private CasaShow casaShow;
 
-	private String genero;
+	@Enumerated(EnumType.STRING)
+	private Genero genero;
 	
 	
-
+	
 	public String getEvento() {
 		return evento;
 	}
@@ -67,7 +71,7 @@ public class Eventos extends AbstractEntity<Long> {
 		this.valor = valor;
 	}
 
-	public CasaShow getCasaShow() {	
+	public CasaShow getCasaShow() {
 		return casaShow;
 	}
 
@@ -75,12 +79,22 @@ public class Eventos extends AbstractEntity<Long> {
 		this.casaShow = casaShow;
 	}
 
-	public String getGenero() {
+	public Genero getGenero() {
 		return genero;
 	}
 
-	public void setGenero(String genero) {
+	public void setGenero(Genero genero) {
 		this.genero = genero;
 	}
 
+	
+	
+	
+	
+	
+
 }
+
+
+
+

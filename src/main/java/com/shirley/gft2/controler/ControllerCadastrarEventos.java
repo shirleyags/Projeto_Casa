@@ -1,5 +1,6 @@
 package com.shirley.gft2.controler;
 
+import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.shirley.gft2.model.CasaShow;
 import com.shirley.gft2.model.Eventos;
+import com.shirley.gft2.model.Genero;
 import com.shirley.gft2.repository.CasaCadastros;
 import com.shirley.gft2.repository.EventosRep;
 
@@ -24,8 +26,10 @@ public class ControllerCadastrarEventos {
 	private CasaCadastros cadastroscasa;
 
 	@RequestMapping("/eventos/cadastrareventos")
-	public String cadastraEventos(Eventos evento) {
-		return "/Eventos/CadastrarEventos";
+	public ModelAndView cadastraEventos() {
+		ModelAndView mv = new ModelAndView("/Eventos/CadastrarEventos");
+		mv.addObject("todosOsGeneros", Genero.values());
+		return mv;
 	}
 
 	@RequestMapping(value = "/eventos/cadastrareventos", method = RequestMethod.POST)
@@ -42,10 +46,12 @@ public class ControllerCadastrarEventos {
 		return cadastroscasa.findAll();
 	}
 	
+	@ModelAttribute("todosOsGeneros")
+	public List<Genero> listaOsGeneros(){
+		return Arrays.asList(Genero.values());
+	}
 	
 	
-	
-
 }
 
 //		@Autowired

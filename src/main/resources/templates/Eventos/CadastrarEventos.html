@@ -18,8 +18,11 @@
 
 
 
-		<div class="alert alert-success comunicado" th:if="${!#strings.isEmpty(mensagem)}"> <!-- Se o atributo "mensagem" (que está na view - no salvar)  não estiver vazio, aparecer a mensagem. -->
-			<span th:text="${mensagem}">Salvo</span> <!-- th:text="${mensagem} Traz o texto que está na "add" -->
+		<div class="alert alert-success comunicado"
+			th:if="${!#strings.isEmpty(mensagem)}">
+			<!-- Se o atributo "mensagem" (que está na view - no salvar)  não estiver vazio, aparecer a mensagem. -->
+			<span th:text="${mensagem}">Salvo</span>
+			<!-- th:text="${mensagem} Traz o texto que está na "add" -->
 		</div>
 
 
@@ -47,21 +50,51 @@
 				placeholder="Insira o valor do ingresso" name="valor">
 		</div>
 		<div class="form-group col-md-2">
-			<label for="inputState">Casa de Show</label> 
-			<select id="inputState" class="form-control" name="casaShow">
-				<option selected >Escolha</option>
-				<option th:each="casa : ${listaDeCasas}" th:value="${casa.code}" th:text="${casa.casa}">...</option>
+			<label for="inputState">Casa de Show</label> <select id="inputState"
+				class="form-control" name="casaShow">
+				<option selected>Escolha</option>
+				<option th:each="casa : ${listaDeCasas}" th:value="${casa.code}"
+					th:text="${casa.casa}">...</option>
 			</select>
 		</div>
 		<div class="form-group col-md-2">
-			<label for="inputState">Estilo musical</label> 
-			<select
+			<label for="inputState">Estilo musical</label> <select
 				id="inputState" class="form-control">
 				<option selected>Escolha</option>
-				<option>...</option>
+				<option th:each="casaGenero : ${todosOsGeneros}"
+					th:value="${casaGenero}" th:text="${casaGenero.generoMusical}">...</option>
 			</select>
+			<button type="submit" class="btn btn-primary">Entrar</button>
 		</div>
-		<button type="submit" class="btn btn-primary">Entrar</button>
 	</form>
+
+
+
+
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th scope="col">#</th>
+				<th scope="col">Casa de Show</th>
+				<th scope="col">Evento</th>
+				<th scope="col">Genero Musical</th>
+				<th scope="col">Capacidade</th>
+				<th scope="col">Data</th>
+				<th scope="col">Valor do Ingresso</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<th scope="row">1</th>
+				<td>Mark</td>
+				<td>Otto</td>
+				<td>@mdo</td>
+				<td>@mdo</td>
+				<td>@mdo</td>
+				<td>@mdo</td>
+			</tr>
+		
+		</tbody>
+	</table>
 
 </section>
