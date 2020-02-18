@@ -17,42 +17,57 @@ import com.shirley.gft2.repository.CasaCadastros;
 import com.shirley.gft2.repository.EventosRep;
 
 @Controller
+@RequestMapping("/eventos/cadastrareventos")
 public class ControllerCadastrarEventos {
 
+	private static final String CADASTRO_VIEW =  "/Eventos/CadastrarEventos";
 	@Autowired
 	private EventosRep eventosResp;
 
 	@Autowired
 	private CasaCadastros cadastroscasa;
 
-	@RequestMapping("/eventos/cadastrareventos")
+	@RequestMapping()
 	public ModelAndView cadastraEventos() {
-		ModelAndView mv = new ModelAndView("/Eventos/CadastrarEventos");
+		ModelAndView mv = new ModelAndView(CADASTRO_VIEW);
 		mv.addObject("todosOsGeneros", Genero.values());
 		return mv;
 	}
 
-	@RequestMapping(value = "/eventos/cadastrareventos", method = RequestMethod.POST)
+	@RequestMapping(method = RequestMethod.POST)
 	public ModelAndView salvar(Eventos evento) {
 		eventosResp.save(evento);
-		ModelAndView mv = new ModelAndView("/Eventos/CadastrarEventos");// Se salvou, pegue esse caminho...
+		ModelAndView mv = new ModelAndView(CADASTRO_VIEW);// Se salvou, pegue esse caminho...
 		mv.addObject("mensagem", "Evento cadastrado com sucesso!"); // e adicione no HTML "mensagem"
 		return mv;
 
 	}
-	
+
 	@ModelAttribute("listaDeCasas")
-	public List<CasaShow> casas(){
+	public List<CasaShow> casas() {
 		return cadastroscasa.findAll();
 	}
-	
+
 	@ModelAttribute("todosOsGeneros")
-	public List<Genero> listaOsGeneros(){
+	public List<Genero> listaOsGeneros() {
 		return Arrays.asList(Genero.values());
 	}
 	
+
+	@RequestMapping()
+	public ModelAndView pesquisar() {
+	List<Eventos> todosEventos = eventosResp.findAll();
+	ModelAndView mv = new ModelAndView (CADASTRO_VIEW);
+	mv.addObject("eventosTodos", todosEventos);
+	return mv;
 	
+	
+	}
 }
+
+	
+		
+	
 
 //		@Autowired
 //		private CasaCadastros cadastroscasa;

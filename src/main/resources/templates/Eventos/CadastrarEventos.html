@@ -59,7 +59,7 @@
 		</div>
 		<div class="form-group col-md-2">
 			<label for="inputState">Estilo musical</label> <select
-				id="inputState" class="form-control">
+				id="inputState" class="form-control" name="genero">
 				<option selected>Escolha</option>
 				<option th:each="casaGenero : ${todosOsGeneros}"
 					th:value="${casaGenero}" th:text="${casaGenero.generoMusical}">...</option>
@@ -81,19 +81,23 @@
 				<th scope="col">Capacidade</th>
 				<th scope="col">Data</th>
 				<th scope="col">Valor do Ingresso</th>
+				<th scope="col">Edição</th>
 			</tr>
 		</thead>
 		<tbody>
-			<tr>
-				<th scope="row">1</th>
-				<td>Mark</td>
-				<td>Otto</td>
-				<td>@mdo</td>
-				<td>@mdo</td>
-				<td>@mdo</td>
-				<td>@mdo</td>
+			<tr th:each="evento:${eventosTodos}">
+				<td class="text-center" th:text="${evento.code})"></td>
+				<td class="text-center" th:text="${evento.casaShow})"></td>
+				<td class="text-center" th:text="${evento.evento})"></td>
+				<td class="text-center" th:text="${evento.genero})"></td>
+				<td class="text-center" th:text="${evento.capacidade})"></td>
+				<td class="text-center" th:text="${evento.data})"></td>
+				<td class="text-center" th:text="${evento.valor})"></td>
+				<td></td>
+				
+				
 			</tr>
-		
+
 		</tbody>
 	</table>
 
