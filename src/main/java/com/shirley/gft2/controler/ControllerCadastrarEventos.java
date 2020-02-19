@@ -5,10 +5,13 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.Errors;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.shirley.gft2.model.CasaShow;
 import com.shirley.gft2.model.Eventos;
@@ -27,19 +30,24 @@ public class ControllerCadastrarEventos {
 	@Autowired
 	private CasaCadastros cadastroscasa;
 
-	@RequestMapping()
+	@RequestMapping
 	public ModelAndView cadastraEventos() {
+		List<Eventos> todosEventos = eventosResp.findAll();
 		ModelAndView mv = new ModelAndView(CADASTRO_VIEW);
+		mv.addObject(new Eventos());
+		mv.addObject("eventosTodos", todosEventos);
 		mv.addObject("todosOsGeneros", Genero.values());
 		return mv;
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
-	public ModelAndView salvar(Eventos evento) {
+	public String salvar(@Validated Eventos evento, Errors errors) {
+		if(errors.hasErrors()) {
+			return "/Eventos/CadastrarEventos";
+		}
 		eventosResp.save(evento);
-		ModelAndView mv = new ModelAndView(CADASTRO_VIEW);// Se salvou, pegue esse caminho...
-		mv.addObject("mensagem", "Evento cadastrado com sucesso!"); // e adicione no HTML "mensagem"
-		return mv;
+//		mv.addObject("mensagem", "Evento cadastrado com sucesso!"); // e adicione no HTML "mensagem"
+		return "redirect:/eventos/cadastrareventos";
 
 	}
 
@@ -54,15 +62,15 @@ public class ControllerCadastrarEventos {
 	}
 	
 
-	@RequestMapping()
-	public ModelAndView pesquisar() {
-	List<Eventos> todosEventos = eventosResp.findAll();
-	ModelAndView mv = new ModelAndView (CADASTRO_VIEW);
-	mv.addObject("eventosTodos", todosEventos);
-	return mv;
-	
-	
-	}
+//	@RequestMapping
+//	public ModelAndView pesquisar() {
+//	List<Eventos> todosEventos = eventosResp.findAll();
+//	ModelAndView mv = new ModelAndView (CADASTRO_VIEW);
+//	mv.addObject("eventosTodos", todosEventos);
+//	return mv;
+//	
+//	
+//	}
 }
 
 	

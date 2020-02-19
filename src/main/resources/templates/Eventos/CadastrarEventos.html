@@ -13,8 +13,7 @@
 <section layout:fragment="conteudo">
 
 
-	<form class="mover_formulario2" method="POST"
-		action="/eventos/cadastrareventos">
+	<form class="mover_formulario2" method="POST" action="/eventos/cadastrareventos" th:object="${eventos}">
 
 
 
@@ -23,6 +22,13 @@
 			<!-- Se o atributo "mensagem" (que está na view - no salvar)  não estiver vazio, aparecer a mensagem. -->
 			<span th:text="${mensagem}">Salvo</span>
 			<!-- th:text="${mensagem} Traz o texto que está na "add" -->
+		</div>
+		
+		<div class="alert alert-danger comunicado"
+			th:if="${#fields.hasAnyErrors()}">
+			<div th:each="detailedError : ${#fields.detailedErrors()}">
+				<span th:text="${detailedError.message}"></span>
+			</div>
 		</div>
 
 
@@ -86,13 +92,13 @@
 		</thead>
 		<tbody>
 			<tr th:each="evento:${eventosTodos}">
-				<td class="text-center" th:text="${evento.code})"></td>
-				<td class="text-center" th:text="${evento.casaShow})"></td>
-				<td class="text-center" th:text="${evento.evento})"></td>
-				<td class="text-center" th:text="${evento.genero})"></td>
-				<td class="text-center" th:text="${evento.capacidade})"></td>
-				<td class="text-center" th:text="${evento.data})"></td>
-				<td class="text-center" th:text="${evento.valor})"></td>
+				<td class="text-center" th:text="${evento.code}"></td>
+				<td class="text-center" th:text="${evento.casaShow.casa}"></td>
+				<td class="text-center" th:text="${evento.evento}"></td>
+				<td class="text-center" th:text="${evento.genero}"></td>
+				<td class="text-center" th:text="${evento.capacidade}"></td>
+				<td class="text-center" th:text="${{evento.data}}"></td>
+				<td class="text-center" th:text="|R$ ${{evento.valor}}|"></td>
 				<td></td>
 				
 				
