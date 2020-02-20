@@ -59,7 +59,7 @@ public class ControllerCadastroCasaShow {
 		ModelAndView mv = new ModelAndView("/Casa/CasaShow");
 		CasaShow casaRetorna = cadastroscasa.findById(code).get();
 		mv.addObject(casaRetorna);
-		return mv;	}
+		return mv;	}	
 
 	@RequestMapping(value="/casa/{code}", method = RequestMethod.POST)
 	public String excluir(@PathVariable Long code){

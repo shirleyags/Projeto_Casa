@@ -35,7 +35,7 @@ public class Eventos extends AbstractEntity<Long> {
 	@NotNull(message="O preenchimento da capacidade é obrigatório.")
 	@DecimalMin(value="1", message="O capacidade não pode ser menor que 1")
 	@DecimalMax(value="9999999", message="O valor não pode ser maior que 9.999.999")
-	private int capacidade;
+	private Integer capacidade;
 
 	
 	@NotNull(message="A data é obrigatória.")
@@ -45,6 +45,8 @@ public class Eventos extends AbstractEntity<Long> {
 
 	
 	
+	
+
 	@NotNull(message="O preenchimento do valor é obrigatório.")
 	@NumberFormat(pattern = "#,##0.00")
 	@DecimalMin(value="0.01", message="O valor não pode ser menor que 0,01")
@@ -68,15 +70,16 @@ public class Eventos extends AbstractEntity<Long> {
 	public void setEvento(String evento) {
 		this.evento = evento;
 	}
-
-	public int getCapacidade() {
+	
+	public Integer getCapacidade() {
 		return capacidade;
 	}
 
-	public void setCapacidade(int capacidade) {
+	public void setCapacidade(Integer capacidade) {
 		this.capacidade = capacidade;
 	}
 
+	
 	public Date getData() {
 		return data;
 	}

@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.validation.Errors;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -41,11 +42,12 @@ public class ControllerCadastrarEventos {
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
-	public String salvar(@Validated Eventos evento, Errors errors) {
+	public String salvar(@Validated Eventos evento, Errors errors, RedirectAttributes attributes) {
 		if(errors.hasErrors()) {
 			return "/Eventos/CadastrarEventos";
 		}
 		eventosResp.save(evento);
+		attributes.addFlashAttribute("mensagem", "Evento cadastrado com sucesso!");
 //		mv.addObject("mensagem", "Evento cadastrado com sucesso!"); // e adicione no HTML "mensagem"
 		return "redirect:/eventos/cadastrareventos";
 
@@ -61,16 +63,23 @@ public class ControllerCadastrarEventos {
 		return Arrays.asList(Genero.values());
 	}
 	
-
-//	@RequestMapping
-//	public ModelAndView pesquisar() {
-//	List<Eventos> todosEventos = eventosResp.findAll();
-//	ModelAndView mv = new ModelAndView (CADASTRO_VIEW);
-//	mv.addObject("eventosTodos", todosEventos);
-//	return mv;
-//	
-//	
-//	}
+	@RequestMapping ("/{code}")
+	public ModelAndView editar(@PathVariable Long code) {
+		ModelAndView mv = new ModelAndView(CADASTRO_VIEW);
+		Eventos eventosRetorna = eventosResp.findById(code).get();
+		mv.addObject(eventosRetorna);
+		return mv;	
+		
+	}
+	
+	@RequestMapping(value="/excluir/{code}", method = RequestMethod.GET)
+	public String excluir(@PathVariable Long code){
+		eventosResp.deleteById(code);
+		return "redirect:/eventos/cadastrareventos";
+	}
+	
+	
+	
 }
 
 	
