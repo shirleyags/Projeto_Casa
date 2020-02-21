@@ -33,6 +33,10 @@ public class ControllerCadastrarEventos {
 
 	@RequestMapping
 	public ModelAndView cadastraEventos() {
+		if(casas().isEmpty()) {
+			ModelAndView mv = new ModelAndView("/Eventos/paginaErrohtml");
+			return mv;
+		}
 		List<Eventos> todosEventos = eventosResp.findAll();
 		ModelAndView mv = new ModelAndView(CADASTRO_VIEW);
 		mv.addObject(new Eventos());
@@ -79,8 +83,23 @@ public class ControllerCadastrarEventos {
 	}
 	
 	
+	@RequestMapping("/listaeventos")
+	public ModelAndView listaclientes() {
+	List<Eventos> todosEventos = eventosResp.findAll();
+	ModelAndView mv = new ModelAndView("Eventos/listaEventosClientes");
+	mv.addObject("eventosTodos", todosEventos);
+	return mv;
+}
+	
 	
 }
+
+	
+	
+
+	
+	
+
 
 	
 		

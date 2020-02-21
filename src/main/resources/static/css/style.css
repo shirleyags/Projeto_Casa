@@ -81,6 +81,48 @@ a{
 .mover_formulario2{
 	margin-bottom: 30px;
 }
+
+	
+/*.foto1_cliente{
+	width: 300px; 
+	height: 300px;
+	margin-right: 200px;
+}
+.lista_foto{
+	margin-top:50px;
+	display:flex;
+	flex-direction:row-reverse;
+	justify-content:center;
+	align-items: center; 
+}
+*/
+
+
+
+
+.mensagemErro{
+	box-sizing:border-box;
+	text-align: center;
+	padding-top:300px;;
+	padding-bottom:363px;
+	color:#FF0000;
+	font-weight: bold;
+}
+.lista_mover_eventos{
+	display:flex;
+	flex-direction:row-reverse;
+	align-items: center;
+	justify-content: center;
+	
+
+}
+.fotos_generos{
+	margin-right: 100px;
+	with: 300px;
+	height: 300px;
+}
+
+
 	
 	
 
