@@ -8,6 +8,9 @@
 <title>Shirloka</title>
 <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="/css/style.css">
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 <body>
 
@@ -26,48 +29,63 @@
 					class="sr-only">(Página atual)</span></a> <a class="nav-item nav-link"
 					href="/casa/listacasas">Buscar Casa</a> <a
 					class="nav-item nav-link" href="/casa/casacadastro">Cadastrar
-					Casa</a>
+					Casa</a> <a class="nav-item nav-link" th:href="@{/login}">Login</a> 
+					<a class="nav-item nav-link" th:href="@{/u/novo/cadastro}">Cadastrar</a>
 			</div>
+			
+
+			<form th:action="@{/logout}" method="post"
+				class="form-inline mt-2 mt-md-0">
+				<div class="btn-group mb-2 mr-sm-2">
+					<button type="button" class="btn btn-light"></button>
+					<button type="button"
+						class="btn btn-danger dropdown-toggle dropdown-toggle-split"
+						data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					</button>
+					<div class="dropdown-menu">
+						<button type="submit" class="dropdown-item">Sair</button>
+					</div>
+				</div>
+			</form>
 		</div>
 	</nav>
-	
-	
+
+
 	<section layout:fragment="conteudo">
 		<p>Conteúdo Principal</p>
 	</section>
-	
-	
+
+
 
 	<!-- Footer -->
-	<footer class="page-footer font-small blue pt-4" >
-		
+	<footer class="page-footer font-small blue pt-4">
 
-			<!-- Footer Links -->
-			<div class="container-fluid text-center text-md-left">
 
-				<!-- Grid row -->
-				<div class="row">
+		<!-- Footer Links -->
+		<div class="container-fluid text-center text-md-left">
 
-					<!-- Grid column -->
-					<div class="col-md-6 mt-md-0 mt-3">
+			<!-- Grid row -->
+			<div class="row">
 
-						<!-- Content -->
-						<h5 class="text-uppercase">SHIRLOKA INGRESSOS</h5>
-						<p>Aqui você encontra os melhores shows, nas melhores casas do
-							Brasil!</p>
+				<!-- Grid column -->
+				<div class="col-md-6 mt-md-0 mt-3">
 
-					</div>
-					<hr class="clearfix w-100 d-md-none pb-3">
-					<div class="col-md-3 mb-md-0 mb-3">
-						<div class="col-md-3 mb-md-0 mb-3"></div>
-					</div>
+					<!-- Content -->
+					<h5 class="text-uppercase">SHIRLOKA INGRESSOS</h5>
+					<p>Aqui você encontra os melhores shows, nas melhores casas do
+						Brasil!</p>
+
 				</div>
-				<div class="footer-copyright text-center py-3">© 2020
-					Copyright</div>
+				<hr class="clearfix w-100 d-md-none pb-3">
+				<div class="col-md-3 mb-md-0 mb-3">
+					<div class="col-md-3 mb-md-0 mb-3"></div>
+				</div>
 			</div>
+			<div class="footer-copyright text-center py-3">© 2020 Copyright</div>
+		</div>
 	</footer>
 
-	
+
 
 
 	<script type="text/javascript" src="/js/jquery-3.4.1.min.js"></script>

@@ -33,7 +33,7 @@ public class ControllerCadastroCasaShow {
 	}
 
 	@RequestMapping(value="/casa/casacadastro", method=RequestMethod.POST)
-	public String salvar(@Validated CasaShow casa, Errors errors, RedirectAttributes attributes) {
+		public String salvar(@Validated CasaShow casa, Errors errors, RedirectAttributes attributes) {
 		if(errors.hasErrors()) {
 			return "/Casa/CasaShow";
 		}
