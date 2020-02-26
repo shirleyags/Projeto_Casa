@@ -16,8 +16,8 @@
 	height:500px;
 }
 .mover_carrossel{
-	margin-top:80px;
-	margin-bottom: 90px;
+	margin-top:100px;
+	margin-bottom: 150px;
 }
 .nav_mover{
 	padding-top: 50px;
@@ -115,7 +115,7 @@ a{
 	justify-content: center;
 	
 
-}
+}	
 .fotos_generos{
 	margin-right: 100px;
 	with: 300px;
@@ -125,6 +125,7 @@ a{
 #login .container #login-row #login-column #login-box {
   margin-top: 120px;
   max-width: 600px;
+  margin-bottom: 137px;
   height: 320px;
   border: 1px solid #9C9C9C;
   background-color: #EAEAEA;
@@ -135,6 +136,19 @@ a{
 #login .container #login-row #login-column #login-box #login-form #register-link {
   margin-top: -85px;
 }
+.mover_cards{
+	margin-bottom:150px;
+}
+.diminuir_card{
+	widht: 50px;
+}
+.papel_foto{
+	background-image: url("/imagens/luz_cidade.jpg");
+	background-repeat: no-repeat;
+	
+}
+
+
 
 
 	

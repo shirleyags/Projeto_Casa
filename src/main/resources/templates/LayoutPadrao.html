@@ -14,42 +14,9 @@
 </head>
 <body>
 
-	<nav class="navbar navbar-expand-lg nav_mover"
-		style="background-color: #00008B;">
-		<a class="navbar-brand" href="#">Shirloka Ingressos</a>
-		<button class="navbar-toggler" type="button" data-toggle="collapse"
-			data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
-			aria-expanded="false" aria-label="Alterna navegação">
-			<span class="navbar-toggler-icon"></span>
-		</button>
-		<div class="collapse navbar-collapse justify-content-end"
-			id="navbarNavAltMarkup">
-			<div class="navbar-nav">
-				<a class="nav-item nav-link active" href="/index">Home <span
-					class="sr-only">(Página atual)</span></a> <a class="nav-item nav-link"
-					href="/casa/listacasas">Buscar Casa</a> <a
-					class="nav-item nav-link" href="/casa/casacadastro">Cadastrar
-					Casa</a> <a class="nav-item nav-link" th:href="@{/login}">Login</a> 
-					<a class="nav-item nav-link" th:href="@{/u/novo/cadastro}">Cadastrar</a>
-			</div>
-			
-
-			<form th:action="@{/logout}" method="post"
-				class="form-inline mt-2 mt-md-0">
-				<div class="btn-group mb-2 mr-sm-2">
-					<button type="button" class="btn btn-light"></button>
-					<button type="button"
-						class="btn btn-danger dropdown-toggle dropdown-toggle-split"
-						data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-					</button>
-					<div class="dropdown-menu">
-						<button type="submit" class="dropdown-item">Sair</button>
-					</div>
-				</div>
-			</form>
-		</div>
-	</nav>
-
+	<header layout:insert="/fragments/cabecalho"></header>
+	
+	
 
 	<section layout:fragment="conteudo">
 		<p>Conteúdo Principal</p>

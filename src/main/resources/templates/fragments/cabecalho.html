@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html xmlns:xlink="http://www.w3.org/1999/xlink"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+	
+<head>
+	<meta charset="UTF-8">
+</head>
+	
+	
+
+<header layout:fragment="cabecalho">
+
+	<nav class="navbar navbar-expand-md navbar-dark bg-dark pt-5">
+			<a class="navbar-brand" th:href="@{/}">SHIRLOKA Ingressos</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse"
+				data-target="#navbarCollapse" aria-controls="navbarCollapse"
+				aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarCollapse">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item dropdown" sec:authorize="hasAuthority('ADMIN')"><a	
+						class="btn btn-dark dropdown-toggle" href="#" id="dropdown01"
+						data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Admistrador</a>
+						<div class="dropdown-menu" aria-labelledby="dropdown01">
+							<a class="dropdown-item" th:href="@{/casa/casacadastro}">Cadastrar Casas</a> 
+							<div class="dropdown-divider"></div>
+							<a class="dropdown-item" th:href="@{/casa/listacasas}">Buscar Casas</a>
+							<a class="dropdown-item" th:href="@{/eventos/cadastrareventos}">Cadastrar eventos</a>
+						</div>
+					</li>
+					</li>
+					<li class="nav-item dropdown" sec:authorize="hasAuthority('CLIENTE')"><a
+						class="btn btn-dark dropdown-toggle" href="#" id="dropdown03"
+						data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Clientes</a>
+						<div class="dropdown-menu" aria-labelledby="dropdown03">
+							<a class="dropdown-item">Dados cadastrais</a>
+							<a class="dropdown-item" th:href="@{/eventos/cadastrareventos/listaeventos}">Eventos</a>
+					</li>					
+				</ul>
+
+				<form class="form-inline mt-2 mt-md-0" sec:authorize="!isAuthenticated()">
+					<div class="form-check mb-2 mr-sm-2">
+						<a class="btn btn-outline-success my-2 my-sm-0" role="button"
+							th:href="@{/login}">Login</a>
+					</div>
+
+					<div class="form-check mb-2 mr-sm-2">
+						<a class="btn btn-outline-success my-2 my-sm-0" role="button"
+							th:href="@{/u/novo/cadastro}">Cadastrar-se</a>
+					</div>
+				</form>
+
+				<form th:action="@{/logout}" sec:authorize="isAuthenticated()"
+					  method="post"  class="form-inline mt-2 mt-md-0">
+					<div class="btn-group mb-2 mr-sm-2">
+						<button type="button" class="btn btn-light">
+							<i class="fas fa-user"></i> <span class=""
+								sec:authentication="name"></span> 
+						</button>
+						<button type="button"
+							class="btn btn-danger dropdown-toggle dropdown-toggle-split"
+							data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						</button>
+						<div class="dropdown-menu">
+							<button type="submit" class="dropdown-item">Sair</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</nav>
+
+
+
+<!--  
+<nav class="navbar navbar-expand-lg nav_mover"
+		style="background-color: #00008B;">
+		<a class="navbar-brand" href="#">Shirloka Ingressos</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse"
+			data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
+			aria-expanded="false" aria-label="Alterna navegação">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse justify-content-end"
+			id="navbarNavAltMarkup">
+			<div class="navbar-nav">
+			
+				<a class="nav-item nav-link active" href="/index">Home <span
+					class="sr-only">(Página atual)</span></a> <a class="nav-item nav-link"
+					href="/casa/listacasas">Buscar Casa</a> <a
+					class="nav-item nav-link" href="/casa/casacadastro">Cadastrar
+					Casa</a> <a class="nav-item nav-link" th:href="@{/login}">Login</a> 
+					<a class="nav-item nav-link" th:href="@{/u/novo/cadastro}">Cadastrar</a>
+			</div>
+			
+
+			<form th:action="@{/logout}" method="post"
+				class="form-inline mt-2 mt-md-0">
+				<div class="btn-group mb-2 mr-sm-2">
+					<button type="button" class="btn btn-light"></button>
+					<button type="button"
+						class="btn btn-danger dropdown-toggle dropdown-toggle-split"
+						data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					</button>
+					<div class="dropdown-menu">
+						<button type="submit" class="dropdown-item">Sair</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</nav>
+	-->
+	</header>
+	</html>

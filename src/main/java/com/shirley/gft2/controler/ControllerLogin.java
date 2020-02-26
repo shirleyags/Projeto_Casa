@@ -23,13 +23,13 @@ public class ControllerLogin {
 		return "login";
 	}
 	
-	@RequestMapping({"/acesso-negado"})	
-	public String acessoNegado(ModelMap model, HttpServletResponse resposta) {
-		model.addAttribute("status",resposta.getStatus());
-		model.addAttribute("error", "Acesso Negado.");	
-		model.addAttribute("message", "Você não tem permissão para acesso a essa área!");		
-		return "error";
-	}
+//	@RequestMapping({"/acesso-negado"})	
+//	public String acessoNegado(ModelMap model, HttpServletResponse resposta) {
+//		model.addAttribute("status",resposta.getStatus());
+//		model.addAttribute("error", "Acesso Negado.");	
+//		model.addAttribute("message", "Você não tem permissão para acesso a essa área!");		
+//		return "error";
+//	}
 	
 	
 
