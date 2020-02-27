@@ -19,32 +19,35 @@
 
 		<form class="formulario_busca" action="/casa/listacasas" method="GET"
 			th:object="${filtro}">
-			<label for="busca" class="etique_buscar">Buscar</label> <input size="40"
-				placeholder=" Digite a casa de show" type="search" id="busca"
-				th:field="*{casa}">
+			<label for="busca" class="etique_buscar">Buscar</label> <input
+				size="40" placeholder=" Digite a casa de show" type="search"
+				id="busca" th:field="*{casa}">
 			<button type="submit" class="botao_ok">OK</button>
+
+
+			
 		</form>
 
 
 		<table class="table mover_tabela">
 			<thead class="thead-light">
 				<tr>
-					<th scope="col">#</th>
-					<th scope="col">Casa de Show</th>
-					<th scope="col">Logradouro</th>
-					<th scope="col">Cidade</th>
-					<th scope="col">Estado</th>
-					<th scope="col">Edição</th>
+					<th class="text-center" scope="col">#</th>
+					<th class="text-center" scope="col">Casa de Show</th>
+					<th class="text-center" scope="col">Logradouro</th>
+					<th class="text-center" scope="col">Cidade</th>
+					<th class="text-center" scope="col">Estado</th>
+					<th class="text-center" scope="col">Edição</th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr th:each="casa : ${casas}">
-					<td th:text="${casa.code}"></td>
-					<td th:text="${casa.casa}"></td>
-					<td th:text="${casa.logradouro}"></td>
-					<td th:text="${casa.cidade}"></td>
-					<td th:text="${casa.estado}"></td>
-					<td><a class="btn btn-link btn-xs"
+					<td class="text-center" th:text="${casa.code}"></td>
+					<td class="text-center" th:text="${casa.casa}"></td>
+					<td class="text-center" th:text="${casa.logradouro}"></td>
+					<td class="text-center" th:text="${casa.cidade}"></td>
+					<td class="text-center" th:text="${casa.estado}"></td>
+					<td class="text-center"><a class="btn btn-link btn-xs"
 						th:href="@{/casa/{code}(code=${casa.code})}"><img
 							src="/icone/pencil-2x.png"></a> <!--  th:attr="data-codigo=${casa.code}" th:attr= PARA ADICIONAR UM ATRIBUTO QUALQUER EXTRA COM O THYMELEAF -->
 						<a class="btn btn-link btn-xs" data-toggle="modal"
@@ -53,7 +56,8 @@
 							src="/icone/x-2x.png"></a></td>
 				</tr>
 				<tr>
-					<td colspan="6" th:if="${#lists.isEmpty(casas)}">Nenhuma casa de show foi encontrada.</td>
+					<td colspan="6" th:if="${#lists.isEmpty(casas)}">Nenhuma casa
+						de show foi encontrada.</td>
 				</tr>
 			</tbody>
 		</table>

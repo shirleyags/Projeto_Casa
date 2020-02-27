@@ -3,7 +3,7 @@ package com.shirley.gft2.model;
 public enum Genero {
 	
 	SERTANEJO ("Sertanejo"),
-	FORRÓ ("Forró"),
+	FORRO ("Forró"),
 	SAMBA ("Samba"),
 	PAGODE ("Pagode"),
 	ROCK ("Rock"),
@@ -12,14 +12,15 @@ public enum Genero {
 	
 	private String generoMusical;
 
-	private Genero(String generoMusical) {
-		this.generoMusical = generoMusical;
-	}
-
 	public String getGeneroMusical() {
 		return generoMusical;
 	}
 
+	private Genero(String generoMusical) {
+		this.generoMusical = generoMusical;
+	}
+	
+	
 
 
 }

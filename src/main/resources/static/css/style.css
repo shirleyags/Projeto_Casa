@@ -28,7 +28,11 @@ footer {
     background-color:#FFA500;
 }
 a{
-	color:white;
+	color:#FFFFFF;
+	
+}
+label{
+	font-weight: bold;
 }
 
 .mover_formulario{
@@ -36,11 +40,20 @@ a{
 	margin-left: 50px;
 	margin-bottom:-71px;
 }
+.mover_formulario2{
+	margin-top: 100px;
+	margin-left: 50px;
+	margin-bottom: 30px;
+	
+	
+}
+
 .formulario_busca{
 	margin-top: 100px;
 	margin-bottom: 30px;
 	margin-left:10px;
 }
+
 .label_letras{
 	font-weight: bold;
 } 
@@ -48,6 +61,12 @@ a{
 	margin-top: 30px;
 	margin-bottom: 205px;
 }
+.mover_botao2{
+	margin-top: 30px;
+	margin-bottom: 100px;
+}
+
+
 .faixa{
 	margin-top:10px;
 	padding: 10px;
@@ -78,9 +97,6 @@ a{
 	width: 598px;
 	margin-left:15px;
 }
-.mover_formulario2{
-	margin-bottom: 30px;
-}
 
 	
 /*.foto1_cliente{
@@ -88,16 +104,7 @@ a{
 	height: 300px;
 	margin-right: 200px;
 }
-.lista_foto{
-	margin-top:50px;
-	display:flex;
-	flex-direction:row-reverse;
-	justify-content:center;
-	align-items: center; 
-}
 */
-
-
 
 
 .mensagemErro{
@@ -109,15 +116,21 @@ a{
 	font-weight: bold;
 }
 .lista_mover_eventos{
+	box-sizing: border-box;
 	display:flex;
 	flex-direction:row-reverse;
 	align-items: center;
 	justify-content: center;
+	margin-top: 100px;
+	margin-bottom: 100px;
+	background-color: #FFFFFF;
+	padding-top: 50px;
+	padding-bottom: 50px;
+	box-shadow:0px 0px 20px rgba(0,0,0,0.2);
 	
-
 }	
+
 .fotos_generos{
-	margin-right: 100px;
 	with: 300px;
 	height: 300px;
 }
@@ -142,13 +155,27 @@ a{
 .diminuir_card{
 	widht: 50px;
 }
-.papel_foto{
+.foto_fim_login{
 	background-image: url("/imagens/luz_cidade.jpg");
 	background-repeat: no-repeat;
+}
+.flex_lado_lista{
+	display:flex;
+
+}
+.tamanho_letra_lista{
+	font-size: 17px;
+	margin-right:5px;
 	
 }
+.div_fotos{
+	margin-right:50px;
+}
+.corpo_lista_clientes{
+	background-color: #DCDCDC;
+	width: 
 
-
+}
 
 
 	

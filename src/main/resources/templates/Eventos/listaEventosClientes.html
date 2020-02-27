@@ -10,47 +10,48 @@
 
 
 
+<body class="corpo_lista_clientes">
 <section layout:fragment="conteudo">
+	
 
-
-
-
-	<div class="lista_foto">
-		<dl class="lista_mover_eventos" th:each="evento:${eventosTodos}">
+		<div class="lista_mover_eventos" th:each="evento:${eventosTodos}">
 			<div>
-				<dt>Evento</dt>
-				<dd th:text="${evento.evento}"></dd>
-				<dt>Genero</dt>
-				<dd th:text="${evento.genero}"></dd>
-				<dt>Casa de Show</dt>
-				<dd th:text="${evento.casaShow.casa}"></dd>
-				<dt>Data</dt>
-				<dd th:text="${{evento.data}}"></dd>
-				<dt>Capacidade</dt>
-				<dd th:text="${evento.capacidade}"></dd>
-				<dt>Valor</dt>
-				<dd th:text="|R$ ${{evento.valor}}|"></dd>
+				<div class="flex_lado_lista">
+					<h2 class="tamanho_letra_lista">Evento:</h2>
+					<p th:text="${evento.evento}"></p>
+				</div>
+				<div class="flex_lado_lista">
+					<h2 class="tamanho_letra_lista">Genero:</h2>
+					<p th:text="${evento.genero.generoMusical}"></p>
+				</div>
+				<div class="flex_lado_lista">
+					<h2 class="tamanho_letra_lista">Casa de Show:</h2>
+					<p th:text="${evento.casaShow.casa}"></p>
+				</div>
+				<div class="flex_lado_lista">
+					<h2 class="tamanho_letra_lista">Data:</h2>
+					<p th:text="${{evento.data}}"></p>
+				</div>
+				<div class="flex_lado_lista">
+					<h2 class="tamanho_letra_lista">Capacidade:</h2>
+					<p th:text="${evento.capacidade}"></p>
+				</div>
+				<div class="flex_lado_lista">
+					<h2 class="tamanho_letra_lista">Valor:</h2>
+					<p th:text="|R$ ${{evento.valor}}|"></p>
+				</div>
 				<button type="submit" class="btn btn-primary">Comprar</button>
 			</div>
-			<div>
-				<img class="fotos_generos" th:src="@{${'/imagens/'+evento.genero+'.jpg'}}">
+			<div class="div_fotos">
+				<img class="fotos_generos"
+					th:src="@{${'/imagens/'+evento.genero+'.jpg'}}">
 			</div>
-		</dl>
-
-	</div>
+		</div>
 
 
 
 
-
-
-
-
-
-
-
-
-
-
+		
 </section>
+</body>
 </html>

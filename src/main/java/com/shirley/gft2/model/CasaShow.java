@@ -18,7 +18,7 @@ public class CasaShow extends AbstractEntity<Long> {
 	private String casa;
 	
 	
-	@OneToMany(mappedBy = "casaShow")
+	@OneToMany(cascade = CascadeType.ALL,mappedBy = "casaShow")
 	private  List<Eventos> listaEventos; 
 	
 	public List<Eventos> getListaEventos() {
