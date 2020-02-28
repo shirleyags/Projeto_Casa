@@ -15,14 +15,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 		http.csrf().disable().authorizeRequests().antMatchers("/imagens/**", "/js/**", "/css/**").permitAll()
 				.antMatchers("/index").permitAll().antMatchers("/casa/**","/eventos/cadastrareventos").hasAuthority("ADMIN")
-				.antMatchers("/eventos/cadastrareventos/listaeventos").hasAuthority("CLIENTE")
-
+				.antMatchers("/eventos/cadastrareventos/listaeventos").hasAnyAuthority("CLIENTE","ADMIN")
 				.anyRequest().authenticated()
 
 				.and().formLogin().loginPage("/login").defaultSuccessUrl("/index", true).failureUrl("/login-error")
-				.permitAll().and().logout().logoutSuccessUrl("/index").and().exceptionHandling()
-				.accessDeniedPage("/acesso-negado")
-
+				.permitAll().and().logout().logoutSuccessUrl("/index")
+				.and().exceptionHandling().accessDeniedPage("/acesso-negado")
 		;
 
 	}
@@ -30,8 +28,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		PasswordEncoder encoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();
-		auth.inMemoryAuthentication().withUser("shirley").password(encoder.encode("123")).authorities("ADMIN");
-		auth.inMemoryAuthentication().withUser("shirleyags").password(encoder.encode("123")).authorities("CLIENTE");
+		auth.inMemoryAuthentication().withUser("admin.henrique").password(encoder.encode("123")).authorities("ADMIN");
+		auth.inMemoryAuthentication().withUser("usuario.cliente").password(encoder.encode("123")).authorities("CLIENTE");
 
 	}
 

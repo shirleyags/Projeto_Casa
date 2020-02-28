@@ -4,6 +4,9 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.context.properties.bind.DefaultValue;
+import org.springframework.dao.DataAccessException;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.Errors;
 import org.springframework.validation.annotation.Validated;
@@ -11,6 +14,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -32,11 +36,13 @@ public class ControllerCadastrarEventos {
 	private CasaCadastros cadastroscasa;
 
 	@RequestMapping
-	public ModelAndView cadastraEventos() {
+	public ModelAndView cadastraEventos (@RequestParam(defaultValue = "%")String buscaEventos){
+			
 		if(casas().isEmpty()) {
 			ModelAndView mv = new ModelAndView("/Eventos/paginaErrohtml");
 			return mv;
 		}
+		
 		List<Eventos> todosEventos = eventosResp.findAll();
 		ModelAndView mv = new ModelAndView(CADASTRO_VIEW);
 		mv.addObject(new Eventos());
@@ -50,10 +56,14 @@ public class ControllerCadastrarEventos {
 		if(errors.hasErrors()) {
 			return "/Eventos/CadastrarEventos";
 		}
-		eventosResp.save(evento);
+		try {eventosResp.save(evento);
 		attributes.addFlashAttribute("mensagem", "Evento cadastrado com sucesso!");
 //		mv.addObject("mensagem", "Evento cadastrado com sucesso!"); // e adicione no HTML "mensagem"
 		return "redirect:/eventos/cadastrareventos";
+		}catch (DataIntegrityViolationException e) {
+			errors.rejectValue("data", null,"Formato de data inválido");
+			return CADASTRO_VIEW;
+		}
 
 	}
 
